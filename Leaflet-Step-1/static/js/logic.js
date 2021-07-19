@@ -75,9 +75,9 @@ function init() {
 
         // Different colors = range in depth
             function setcolors(depth){ 
-            var circleColor = "#ff6699";
+            var circleColor = "#800000";
             if (depth > 90) {
-                circleColor = "#ff6699";
+                circleColor = "#ff3300";
             }
             else if (depth > 70) {
                 circleColor = "#ff9933";
@@ -102,7 +102,7 @@ function init() {
                     color: "pink",
                     // fillColor: "pink",
 
-                    fillColor: setcolors(features.geometry.coordinates[2]),
+                    fillColor: setcolors(earthquakeData.features[i].geometry.coordinates[2]),
                     // radius: markerSize(earthquakeData.features[i].properties.mag)
                     radius: markerSize(earthquakeData.features[i].properties.mag * 40)
                 })
