@@ -99,14 +99,12 @@ function init() {
                 L.circle([earthquakeData.features[i].geometry.coordinates[1], earthquakeData.features[i].geometry.coordinates[0]], {
                     stroke: false,
                     fillOpacity: 0.75,
-                    color: "pink",
-                    // fillColor: "pink",
-
                     fillColor: setcolors(earthquakeData.features[i].geometry.coordinates[2]),
-                    // radius: markerSize(earthquakeData.features[i].properties.mag)
-                    radius: markerSize(earthquakeData.features[i].properties.mag * 50)
+                    radius: markerSize(earthquakeData.features[i].properties.mag * 50),
+                    weight: 1
                 })
             );
+            
         }
 
         // Create base layers
@@ -166,8 +164,8 @@ function init() {
         }).addTo(myMap);
     })
 
-        // legend.addTo(myMap);
+    // legend.addTo(myMap);
 
-    };
+};
 
-        window.addEventListener('DOMContentLoaded', init);
+window.addEventListener('DOMContentLoaded', init);
