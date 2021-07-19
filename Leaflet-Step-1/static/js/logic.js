@@ -1,66 +1,66 @@
 // Function to determine marker size based on population
 function markerSize(depth) {
-    return depth * 15;
+    return depth * 200;
 }
 
 // An array containing all of the information needed to create city and state markers
 function init() {
     var locations = [
-        {
-            coordinates: [40.7128, -74.0059],
-            state: {
-                name: "New York State",
-                population: 19795791
-            },
-            city: {
-                name: "New York",
-                population: 8550405
-            }
-        },
-        {
-            coordinates: [34.0522, -118.2437],
-            state: {
-                name: "California",
-                population: 39250017
-            },
-            city: {
-                name: "Lost Angeles",
-                population: 3971883
-            }
-        },
-        {
-            coordinates: [41.8781, -87.6298],
-            state: {
-                name: "Illinois",
-                population: 12671821
-            },
-            city: {
-                name: "Chicago",
-                population: 2695598
-            }
-        },
-        {
-            coordinates: [29.7604, -95.3698],
-            state: {
-                name: "Texas",
-                population: 26960000
-            },
-            city: {
-                name: "Houston",
-                population: 2296224
-            }
-        },
-        {
-            coordinates: [41.2524, -95.9980],
-            state: {
-                name: "Nebraska",
-                population: 1882000
-            },
-            city: {
-                name: "Omaha",
-                population: 446599
-            }
-        }
+        // {
+        //     coordinates: [40.7128, -74.0059],
+        //     state: {
+        //         name: "New York State",
+        //         population: 19795791
+        //     },
+        //     city: {
+        //         name: "New York",
+        //         population: 8550405
+        //     }
+        // },
+        // {
+        //     coordinates: [34.0522, -118.2437],
+        //     state: {
+        //         name: "California",
+        //         population: 39250017
+        //     },
+        //     city: {
+        //         name: "Lost Angeles",
+        //         population: 3971883
+        //     }
+        // },
+        // {
+        //     coordinates: [41.8781, -87.6298],
+        //     state: {
+        //         name: "Illinois",
+        //         population: 12671821
+        //     },
+        //     city: {
+        //         name: "Chicago",
+        //         population: 2695598
+        //     }
+        // },
+        // {
+        //     coordinates: [29.7604, -95.3698],
+        //     state: {
+        //         name: "Texas",
+        //         population: 26960000
+        //     },
+        //     city: {
+        //         name: "Houston",
+        //         population: 2296224
+        //     }
+        // },
+        // {
+        //     coordinates: [41.2524, -95.9980],
+        //     state: {
+        //         name: "Nebraska",
+        //         population: 1882000
+        //     },
+        //     city: {
+        //         name: "Omaha",
+        //         population: 446599
+        //     }
+        // }
     ];
     d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson", function (earthquakeData) {
         console.log(earthquakeData);
@@ -81,7 +81,8 @@ function init() {
                     color: "pink",
                     fillColor: "pink",
                     // radius: markerSize(earthquakeData.features[i].properties.mag)
-                    radius: 50
+                    radius: markerSize(earthquakeData.features[i].properties.mag*40)
+                    // radius: 50
                 })
             );
         }
