@@ -73,13 +73,36 @@ function init() {
         for (var i = 0; i < earthquakeData.features.length; i++) {
 
 
+        // Different colors = range in depth
+            function setcolors(depth){ 
+            var circleColor = "#ff6699";
+            if (depth > 90) {
+                circleColor = "#ff6699";
+            }
+            else if (depth > 70) {
+                circleColor = "#ff9933";
+            }
+            else if (depth > 50) {
+                circleColor = "#ffff00";
+            }
+            else if (depth > 30) {
+                circleColor = "#ccff33";
+            }   
+            else if (depth > 10) {
+                circleColor = "#66ff66";
+            }
+            return circleColor;
+        } 
+
             // Setting the marker radius for the city by passing population into the markerSize function
             earthquakeMarkers.push(
                 L.circle([earthquakeData.features[i].geometry.coordinates[1], earthquakeData.features[i].geometry.coordinates[0]], {
                     stroke: false,
                     fillOpacity: 0.75,
                     color: "pink",
-                    fillColor: "pink",
+                    // fillColor: "pink",
+
+                    fillColor: setcolors(features.geometry.coordinates[2]),
                     // radius: markerSize(earthquakeData.features[i].properties.mag)
                     radius: markerSize(earthquakeData.features[i].properties.mag * 40)
                 })
