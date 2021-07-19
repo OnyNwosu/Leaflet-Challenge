@@ -103,7 +103,7 @@ function init() {
                     weight: 1
                 })
             );
-            
+
         }
 
         // Create base layers
@@ -125,7 +125,7 @@ function init() {
             accessToken: API_KEY
         });
 
-        
+
         // Create two separate layer groups: one for cities and one for states
         var cities = L.layerGroup(earthquakeMarkers);
 
