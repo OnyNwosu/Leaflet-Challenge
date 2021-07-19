@@ -92,6 +92,7 @@ function init() {
                 return circleColor;
             }
 
+
             // Setting the marker radius for the city by passing population into the markerSize function
             earthquakeMarkers.push(
                 L.circle([earthquakeData.features[i].geometry.coordinates[1], earthquakeData.features[i].geometry.coordinates[0]], {
@@ -124,6 +125,7 @@ function init() {
             accessToken: API_KEY
         });
 
+        
         // Create two separate layer groups: one for cities and one for states
         var cities = L.layerGroup(earthquakeMarkers);
 
