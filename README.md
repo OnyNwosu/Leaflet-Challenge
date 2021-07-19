@@ -50,6 +50,9 @@ Your first task is to visualize an earthquake data set.
 
    * Your visualization should look something like the map above.
 
+## OnyNwosu's screenshot
+![Leaflet_Step_1_Map](Images/Screenshot of OnyNwosu's map.PNG)
+
 - - -
 
 ### Level 2: More Data (Optional)
