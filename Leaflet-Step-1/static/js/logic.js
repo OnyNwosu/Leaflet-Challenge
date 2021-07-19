@@ -71,7 +71,6 @@ function init() {
         // Loop through locations and create city and state markers
         for (var i = 0; i < earthquakeData.features.length; i++) {
 
-
             // Different colors = range in depth
             function setcolors(depth) {
                 var circleColor = "#006600";
