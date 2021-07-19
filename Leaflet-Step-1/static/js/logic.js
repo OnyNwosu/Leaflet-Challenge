@@ -99,7 +99,7 @@ function init() {
                     stroke: false,
                     fillOpacity: 0.75,
                     fillColor: setcolors(earthquakeData.features[i].geometry.coordinates[2]),
-                    radius: markerSize(earthquakeData.features[i].properties.mag * 50),
+                    radius: markerSize(earthquakeData.features[i].properties.mag * 60),
                     weight: 1
                 })
             );
