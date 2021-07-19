@@ -2,7 +2,6 @@
 function markerSize(depth) {
     return depth * 200;
 }
-
 // An array containing all of the information needed to create city and state markers
 function init() {
     var locations = [
