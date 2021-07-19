@@ -73,26 +73,26 @@ function init() {
         for (var i = 0; i < earthquakeData.features.length; i++) {
 
 
-        // Different colors = range in depth
-            function setcolors(depth){ 
-            var circleColor = "#800000";
-            if (depth > 90) {
-                circleColor = "#ff3300";
+            // Different colors = range in depth
+            function setcolors(depth) {
+                var circleColor = "#006600";
+                if (depth > 90) {
+                    circleColor = "#ff3300";
+                }
+                else if (depth > 70) {
+                    circleColor = "#ff9933";
+                }
+                else if (depth > 50) {
+                    circleColor = "#ffff00";
+                }
+                else if (depth > 30) {
+                    circleColor = "#ccff33";
+                }
+                else if (depth > 10) {
+                    circleColor = "#66ff66";
+                }
+                return circleColor;
             }
-            else if (depth > 70) {
-                circleColor = "#ff9933";
-            }
-            else if (depth > 50) {
-                circleColor = "#ffff00";
-            }
-            else if (depth > 30) {
-                circleColor = "#ccff33";
-            }   
-            else if (depth > 10) {
-                circleColor = "#66ff66";
-            }
-            return circleColor;
-        } 
 
             // Setting the marker radius for the city by passing population into the markerSize function
             earthquakeMarkers.push(
@@ -104,7 +104,7 @@ function init() {
 
                     fillColor: setcolors(earthquakeData.features[i].geometry.coordinates[2]),
                     // radius: markerSize(earthquakeData.features[i].properties.mag)
-                    radius: markerSize(earthquakeData.features[i].properties.mag * 40)
+                    radius: markerSize(earthquakeData.features[i].properties.mag * 50)
                 })
             );
         }
@@ -150,6 +150,15 @@ function init() {
             layers: [darkmap, cities]
         });
 
+        // Adding legend
+        // var legend = L.control({ position: "bottomright" });
+        // legend.onAdd = function () {
+        //     var div = L.DomUtil.create("div", "info legend");
+        //     var limits = ["-10-10", "10-30", "30-50", "50-70", "70-90", "90+"];
+        //     var colors = ["#00FF00", "#e2eb34", "#ebd334", "#eb9f34", "#eb5e34", "#FF0000"];
+        // var labels = [];
+
+
         // Pass our map layers into our layer control
         // Add the layer control to the map
         L.control.layers(baseMaps, overlayMaps, {
@@ -157,8 +166,8 @@ function init() {
         }).addTo(myMap);
     })
 
+        // legend.addTo(myMap);
 
+    };
 
-};
-
-window.addEventListener('DOMContentLoaded', init);
+        window.addEventListener('DOMContentLoaded', init);
