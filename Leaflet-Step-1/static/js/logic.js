@@ -68,21 +68,20 @@ function init() {
         // Define arrays to hold created city and state markers
         var index = 0
         var earthquakeMarkers = [];
-        console.log([earthquakeData.features[index].geometry.coordinates[0],earthquakeData.features[index].geometry.coordinates[1]])
+        console.log([earthquakeData.features[index].geometry.coordinates[0], earthquakeData.features[index].geometry.coordinates[1]])
         // Loop through locations and create city and state markers
         for (var i = 0; i < earthquakeData.features.length; i++) {
 
 
             // Setting the marker radius for the city by passing population into the markerSize function
             earthquakeMarkers.push(
-                L.circle([earthquakeData.features[i].geometry.coordinates[1],earthquakeData.features[i].geometry.coordinates[0]], {
+                L.circle([earthquakeData.features[i].geometry.coordinates[1], earthquakeData.features[i].geometry.coordinates[0]], {
                     stroke: false,
                     fillOpacity: 0.75,
                     color: "pink",
                     fillColor: "pink",
                     // radius: markerSize(earthquakeData.features[i].properties.mag)
-                    radius: markerSize(earthquakeData.features[i].properties.mag*40)
-                    // radius: 50
+                    radius: markerSize(earthquakeData.features[i].properties.mag * 40)
                 })
             );
         }
@@ -113,7 +112,7 @@ function init() {
         var baseMaps = {
             "Dark Map": darkmap,
             "Street Map": streetmap,
-            
+
         };
 
         // Create an overlay object
